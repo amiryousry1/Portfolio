@@ -27,6 +27,7 @@ export default function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/resume" element={<ResumePage />} />
+            <Route path="*" element={<div className="p-10 text-center text-2xl">404 - Page Not Found (Router Working)</div>} />
           </Routes>
         </main>
         <Footer />
