@@ -10,10 +10,10 @@ export function Navigation() {
 
   const navLinks = [
     { path: '/', label: 'الرئيسية' },
-    { path: '/about', label: 'من أنا' },
-    { path: '/portfolio', label: 'البورتفوليو' },
+    { path: '/about', label: 'عني' },
+    { path: '/portfolio', label: 'أعمالي' },
     { path: '/services', label: 'الخدمات' },
-    { path: '/contact', label: 'تواصل معايا' },
+    { path: '/contact', label: 'تواصل' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -24,7 +24,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <motion.div 
+            <motion.div
               className="w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform"
               whileHover={{ scale: 1.15, rotate: 5 }}
               transition={{ duration: 0.2 }}
@@ -35,7 +35,7 @@ export function Navigation() {
               <div className="font-semibold text-lg bg-gradient-to-l from-[#C1AA7E] to-[#d4c5a9] bg-clip-text text-transparent">أمير يسري</div>
               <div className="text-xs text-gray-400 flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-[#C1AA7E]" />
-                UI/UX Designer
+                UI/UX Designer & Trainer
               </div>
             </div>
           </Link>
@@ -48,14 +48,13 @@ export function Navigation() {
                 to={link.path}
                 className="relative px-4 py-2 rounded-xl transition-all group"
               >
-                <span className={`relative z-10 transition-colors ${
-                  isActive(link.path)
+                <span className={`relative z-10 transition-colors ${isActive(link.path)
                     ? 'text-[#C1AA7E] font-medium'
                     : 'text-gray-300 group-hover:text-[#C1AA7E]'
-                }`}>
+                  }`}>
                   {link.label}
                 </span>
-                
+
                 {/* Active/Hover Background */}
                 {isActive(link.path) && (
                   <motion.div
@@ -64,13 +63,12 @@ export function Navigation() {
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                
+
                 {/* Hover Indicator */}
-                <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-[#C1AA7E] to-[#d4c5a9] transition-all duration-300 ${
-                  isActive(link.path) 
-                    ? 'w-8' 
+                <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-[#C1AA7E] to-[#d4c5a9] transition-all duration-300 ${isActive(link.path)
+                    ? 'w-8'
                     : 'w-0 group-hover:w-8'
-                }`} />
+                  }`} />
               </Link>
             ))}
           </div>
@@ -140,11 +138,10 @@ export function Navigation() {
                     <Link
                       to={link.path}
                       onClick={() => setIsOpen(false)}
-                      className={`px-4 py-3 rounded-xl transition-all flex items-center justify-between group ${
-                        isActive(link.path)
+                      className={`px-4 py-3 rounded-xl transition-all flex items-center justify-between group ${isActive(link.path)
                           ? 'bg-[#C1AA7E]/10 text-[#C1AA7E] font-medium border border-[#C1AA7E]/20'
                           : 'text-gray-300 hover:bg-[#C1AA7E]/5'
-                      }`}
+                        }`}
                     >
                       <span>{link.label}</span>
                       {isActive(link.path) && (
@@ -157,7 +154,7 @@ export function Navigation() {
                     </Link>
                   </motion.div>
                 ))}
-                
+
                 <div className="px-4 pt-4 border-t border-[#C1AA7E]/10 mt-2">
                   <Link
                     to="/resume"

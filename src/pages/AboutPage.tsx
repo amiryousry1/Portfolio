@@ -8,23 +8,23 @@ export function AboutPage() {
   const approach = [
     {
       icon: Target,
-      title: 'تفكير مش بس شكل',
-      description: 'كل تصميم بيبدأ بفهم المشكلة والهدف',
+      title: 'تفكير استراتيجي أولاً',
+      description: 'كل مشروع بيبدأ بفهم المشكلة — مش بالألوان والأشكال',
     },
     {
       icon: Users,
-      title: 'حلول مبنية على بحث',
-      description: 'بحث المستخدمين وتحليل احتياجاتهم الحقيقية',
+      title: 'قرارات مبنية على بيانات',
+      description: 'بحث مستخدمين حقيقي + تحليل بيانات = تصميم ناجح',
     },
     {
       icon: Lightbulb,
-      title: 'تجربة قبل أي حاجة',
-      description: 'التركيز على تجربة المستخدم أولًا وأخيرًا',
+      title: 'المستخدم أولاً',
+      description: 'تجربة المستخدم هي الأولوية — مش بس جزء من العملية',
     },
     {
       icon: TrendingUp,
-      title: 'شغل عملي يطوّر المنتج',
-      description: 'نتائج قابلة للقياس وتحسين مستمر',
+      title: 'نتائج قابلة للقياس',
+      description: 'كل تصميم بيحقق أهداف واضحة — تحسين Conversion، زيادة Engagement',
     },
   ];
 
@@ -83,13 +83,13 @@ export function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">من أنا؟</span>
+                <span className="text-[#C1AA7E] text-sm">عن أمير يسري</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 font-[IBM_Plex_Sans_Arabic] text-white">
-                أنا أمير يسري
+                أمير يسري — مصمم UI/UX ومدرب
               </h1>
               <p className="text-xl text-gray-300 font-[IBM_Plex_Sans_Arabic] leading-relaxed">
-                مصمم تجربة مستخدم… عقليتي دايمًا في حل المشاكل قبل تصميم الشكل.
+                مصمم تجربة مستخدم بخبرة +4 سنين — بركّز على حل المشاكل الحقيقية قبل تصميم الشكل.
               </p>
             </motion.div>
           </div>
@@ -107,20 +107,18 @@ export function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl lg:text-5xl mb-6 text-white">
-                رحلتي في التصميم
+                رحلتي في تصميم تجربة المستخدم
               </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  بدأت رحلتي في عالم الـ UI/UX من أكتر من 4 سنين، وخلال الفترة دي
-                  اشتغلت على مشاريع مختلفة في مجالات كتير.
+                  بدأت رحلتي في تصميم UI/UX من أكتر من 4 سنين — اشتغلت مع شركات في مصر، الكويت، والسعودية على مشاريع في مجالات الصحة، التعليم، الـ Fintech، والـ E-commerce.
                 </p>
                 <p>
                   كل مشروع علمني حاجة جديدة، وخلاني أفهم إن التصميم الحقيقي مش
                   بس شكل جميل… ده حل مشكلة حقيقية للمستخدم.
                 </p>
                 <p>
-                  دلوقتي بشتغل مصمم، مدرب، وصانع محتوى. هدفي إني أساعد أكبر عدد
-                  من الناس يدخلوا المجال بشكل صحيح ويبنوا مستقبل مهني قوي.
+                  دلوقتي بشتغل كـ Product Designer ومدرب UI/UX معتمد. درّبت أكتر من 3,000 طالب وبساعدهم يدخلوا المجال صح ويبنوا بورتفوليو يفتح لهم فرص شغل حقيقية.
                 </p>
               </div>
 
@@ -129,7 +127,7 @@ export function AboutPage() {
                   to="/portfolio"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
                 >
-                  <span>شوف شغلي</span>
+                  <span>اكتشف أعمالي</span>
                   <ArrowLeft className="w-5 h-5" />
                 </Link>
               </div>
@@ -164,7 +162,7 @@ export function AboutPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-5xl mb-12 text-center text-white"
           >
-            طريقتي في الشغل
+            منهجي في التصميم
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {approach.map((item, index) => {
@@ -239,7 +237,7 @@ export function AboutPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-5xl mb-6 text-white"
           >
-            عايز نشتغل مع بعض؟
+            عندك مشروع؟ يلا نشتغل مع بعض
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +246,7 @@ export function AboutPage() {
             transition={{ delay: 0.2 }}
             className="text-xl mb-8 text-gray-400"
           >
-            سواء عندك مشروع جديد أو محتاج استشارة، أنا هنا عشان أساعدك.
+            سواء محتاج تصميم UI/UX لمنتجك أو استشارة في تحسين تجربة المستخدم — ابعتلي تفاصيل مشروعك.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

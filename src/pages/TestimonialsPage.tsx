@@ -65,13 +65,13 @@ export function TestimonialsPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">آراء الطلاب</span>
+                <span className="text-[#C1AA7E] text-sm">آراء العملاء والمتدربين</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 text-white">
-                الناس قالت إيه؟
+                آراء عملاء ومتدربين حقيقيين
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
-                آراء حقيقية من طلاب ومصممين اشتغلوا معايا.
+                +3,000 طالب ومصمم اشتغلوا معايا — دي بعض آرائهم عن تجربتهم.
               </p>
             </motion.div>
           </div>
@@ -159,7 +159,7 @@ export function TestimonialsPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-5xl mb-6 text-white"
           >
-            عايز تبقى منهم؟
+            جاهز تبدأ رحلتك في UI/UX؟
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -168,7 +168,7 @@ export function TestimonialsPage() {
             transition={{ delay: 0.2 }}
             className="text-xl mb-8 text-gray-400"
           >
-            ابدأ رحلتك معايا وخلّي نفسك من الناجحين اللي بنفتخر بيهم.
+            انضم لأكتر من 3,000 مصمم بدأوا رحلتهم معايا — ابعتلي وهنبدأ مع بعض.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

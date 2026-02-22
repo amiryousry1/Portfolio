@@ -10,7 +10,7 @@ export function ContactPage() {
     phone: '',
     message: '',
   });
-  
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ export function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -128,10 +128,10 @@ export function ContactPage() {
                 <span className="text-[#C1AA7E] text-sm">تواصل معايا</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 text-white">
-                خلّينا نتكلم!
+                تواصل معايا — ابدأ مشروعك النهاردة
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
-                عندك فكرة؟ مشروع؟ أو حتى سؤال؟ ابعتلي وهرد عليك في أقرب وقت.
+                عندك مشروع محتاج تصميم UI/UX؟ أو عايز استشارة؟ ابعتلي رسالة وهرد عليك خلال 24 ساعة.
               </p>
             </motion.div>
           </div>
@@ -150,11 +150,10 @@ export function ContactPage() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl mb-6 text-white">
-                طرق التواصل
+                طرق التواصل المتاحة
               </h2>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                اختار الطريقة اللي تناسبك… سواء إيميل، موبايل، أو حتى وسائل
-                التواصل الاجتماعي. أنا متواجد دايمًا.
+                تقدر تتواصل معايا بأي طريقة تناسبك — وبرد خلال 24 ساعة.
               </p>
 
               <div className="space-y-6">
@@ -215,7 +214,7 @@ export function ContactPage() {
                       </div>
                       <h3 className="text-2xl mb-4 text-white">تم الإرسال بنجاح!</h3>
                       <p className="text-gray-300 mb-6">
-                        شكرًا على تواصلك معايا. هرد عليك في أقرب وقت.
+                        شكرًا لرسالتك! هرد عليك خلال 24 ساعة على الإيميل.
                       </p>
                       <button
                         onClick={() => setSubmitted(false)}
@@ -236,10 +235,9 @@ export function ContactPage() {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 bg-[#0f1419] border ${
-                            errors.name ? 'border-red-500' : 'border-[#C1AA7E]/20'
-                          } rounded-xl focus:border-[#C1AA7E] focus:outline-none transition-colors text-white`}
-                          placeholder="اسمك الكامل"
+                          className={`w-full px-4 py-3 bg-[#0f1419] border ${errors.name ? 'border-red-500' : 'border-[#C1AA7E]/20'
+                            } rounded-xl focus:border-[#C1AA7E] focus:outline-none transition-colors text-white`}
+                          placeholder="اسمك (مثال: أحمد محمد)"
                         />
                         {errors.name && (
                           <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
@@ -259,9 +257,8 @@ export function ContactPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 bg-[#0f1419] border ${
-                            errors.email ? 'border-red-500' : 'border-[#C1AA7E]/20'
-                          } rounded-xl focus:border-[#C1AA7E] focus:outline-none transition-colors text-white`}
+                          className={`w-full px-4 py-3 bg-[#0f1419] border ${errors.email ? 'border-red-500' : 'border-[#C1AA7E]/20'
+                            } rounded-xl focus:border-[#C1AA7E] focus:outline-none transition-colors text-white`}
                           placeholder="example@email.com"
                         />
                         {errors.email && (
@@ -297,10 +294,9 @@ export function ContactPage() {
                           value={formData.message}
                           onChange={handleChange}
                           rows={5}
-                          className={`w-full px-4 py-3 bg-[#0f1419] border ${
-                            errors.message ? 'border-red-500' : 'border-[#C1AA7E]/20'
-                          } rounded-xl focus:border-[#C1AA7E] focus:outline-none transition-colors text-white resize-none`}
-                          placeholder="اكتب رسالتك هنا..."
+                          className={`w-full px-4 py-3 bg-[#0f1419] border ${errors.message ? 'border-red-500' : 'border-[#C1AA7E]/20'
+                            } rounded-xl focus:border-[#C1AA7E] focus:outline-none transition-colors text-white resize-none`}
+                          placeholder="اكتب تفاصيل مشروعك أو سؤالك..."
                         />
                         {errors.message && (
                           <p className="text-red-500 text-sm mt-1 flex items-center gap-1">

@@ -13,7 +13,7 @@ export function PortfolioPage() {
     {
       id: 1,
       title: 'تطبيق طبي',
-      description: 'تطبيق لحجز المواعيد والاستشارات الطبية عن بعد',
+      description: 'تصميم UI/UX لتطبيق حجز مواعيد واستشارات طبية عن بعد',
       image:
         'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY0OTY2OTI0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       tags: ['Mobile', 'Healthcare'],
@@ -21,7 +21,7 @@ export function PortfolioPage() {
     {
       id: 2,
       title: 'لوحة تحكم تحليلات',
-      description: 'منصة لعرض وتحليل البيانات بشكل مرئي وسهل',
+      description: 'تصميم Dashboard لتحليل البيانات — واجهة مرئية سهلة لاتخاذ قرارات أسرع',
       image:
         'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY0OTU3MDQ3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       tags: ['Web', 'Dashboard'],
@@ -29,7 +29,7 @@ export function PortfolioPage() {
     {
       id: 3,
       title: 'منصة تعليمية',
-      description: 'نظام إدارة تعلم متكامل للكورسات أونلاين',
+      description: 'تصميم LMS — تجربة مستخدم متكاملة للطلاب والمدربين',
       image:
         'https://images.unsplash.com/photo-1762330910399-95caa55acf04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmxpبmUlMjBsZWFybmluZyUyMGVkdWNhdGlvbnxlbnwxfHx8fDE3NjQ5Njg3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       tags: ['Web', 'Education'],
@@ -37,7 +37,7 @@ export function PortfolioPage() {
     {
       id: 4,
       title: 'تطبيق توصيل طعام',
-      description: 'تطبيق لطلب الطعام من المطاعم المحلية',
+      description: 'تصميم تطبيق توصيل طعام مع تجربة طلب سلسة — من البحث للدفع',
       image:
         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb29kJTIwZGVsaXZlcnklMjBhcHB8ZW58MXx8fHwxNzY0OTY4ODE1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       tags: ['Mobile', 'Food'],
@@ -45,7 +45,7 @@ export function PortfolioPage() {
     {
       id: 5,
       title: 'موقع عقارات',
-      description: 'منصة لعرض وبيع وشراء العقارات',
+      description: 'تصميم UI/UX لمنصة عقارية — بحث ذكي وتجربة تصفح محسّنة',
       image:
         'https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlJTIwd2Vic2l0ZXxlbnwxfHx8fDE3NjQ5Njg4NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       tags: ['Web', 'Real Estate'],
@@ -53,7 +53,7 @@ export function PortfolioPage() {
     {
       id: 6,
       title: 'تطبيق بنكي',
-      description: 'تطبيق للخدمات المصرفية الرقمية',
+      description: 'تصميم تطبيق بنكي رقمي — واجهة آمنة وسهلة للخدمات المصرفية',
       image:
         'https://images.unsplash.com/photo-1563013544-824ae1b704d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBiYW5raW5nJTIwYXBwfGVufDF8fHx8MTc2NDk2ODg2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       tags: ['Mobile', 'Finance'],
@@ -82,13 +82,13 @@ export function PortfolioPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">البورتفوليو</span>
+                <span className="text-[#C1AA7E] text-sm">أعمالي</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 text-white">
-                شوية من شغلي
+                أعمالي ومشاريعي في تصميم UI/UX
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
-                مشاريع حقيقية… تصاميم عملية… نتائج ملموسة.
+                مشاريع حقيقية لعملاء في مصر والخليج — تصاميم مبنية على أبحاث مستخدمين ونتائج قابلة للقياس.
               </p>
             </motion.div>
           </div>
@@ -103,11 +103,10 @@ export function PortfolioPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-xl transition-all font-medium ${
-                  selectedCategory === category
+                className={`px-6 py-2 rounded-xl transition-all font-medium ${selectedCategory === category
                     ? 'bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] shadow-lg'
                     : 'bg-[#1a1f2e] text-gray-300 border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -174,7 +173,7 @@ export function PortfolioPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-5xl mb-6 text-white"
           >
-            عايز مشروع زي دول؟
+            عندك فكرة مشروع؟
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -183,7 +182,7 @@ export function PortfolioPage() {
             transition={{ delay: 0.2 }}
             className="text-xl mb-8 text-gray-400"
           >
-            خلّينا نشتغل مع بعض على فكرتك ونحولها لحقيقة.
+            خلينا نحوّل فكرتك لمنتج رقمي ناجح — ابعتلي التفاصيل وهرد عليك خلال 24 ساعة.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

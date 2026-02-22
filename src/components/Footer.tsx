@@ -55,24 +55,16 @@ export function Footer() {
                 <span className="text-xl font-semibold bg-gradient-to-l from-[#C1AA7E] to-[#d4c5a9] bg-clip-text text-transparent">أمير يسري</span>
                 <div className="text-xs text-gray-400 flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-[#C1AA7E]" />
-                  UI/UX Designer
+                  UI/UX Designer & Trainer
                 </div>
               </div>
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              مصمم، مدرّب، وصانع محتوى متخصص في UI/UX. بساعدك تفهم المجال صح وتبني مستقبل مهني قوي.
+              مصمم UI/UX ومدرب معتمد بخبرة +4 سنين. بصمّم منتجات رقمية وبدرّب مصممين يدخلوا سوق العمل.
             </p>
-            
+
             {/* Social Icons */}
             <div className="flex gap-3">
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 bg-[#C1AA7E]/10 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-[#C1AA7E] hover:text-[#0f1419] transition-all border border-[#C1AA7E]/20 text-[#C1AA7E]"
-              >
-                <Facebook className="w-4 h-4" />
-              </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/amir-yousry-2bb306283"
                 target="_blank"
@@ -82,14 +74,6 @@ export function Footer() {
                 className="w-10 h-10 bg-[#C1AA7E]/10 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-[#C1AA7E] hover:text-[#0f1419] transition-all border border-[#C1AA7E]/20 text-[#C1AA7E]"
               >
                 <Linkedin className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 bg-[#C1AA7E]/10 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-[#C1AA7E] hover:text-[#0f1419] transition-all border border-[#C1AA7E]/20 text-[#C1AA7E]"
-              >
-                <Instagram className="w-4 h-4" />
               </motion.a>
               <motion.a
                 href="https://www.youtube.com/@amir_ayo"
@@ -118,8 +102,8 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { path: '/', label: 'الرئيسية' },
-                { path: '/about', label: 'من أنا' },
-                { path: '/portfolio', label: 'البورتفوليو' },
+                { path: '/about', label: 'عني' },
+                { path: '/portfolio', label: 'أعمالي' },
                 { path: '/services', label: 'الخدمات' },
               ].map((link) => (
                 <li key={link.path}>
@@ -148,10 +132,10 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { path: '/courses', label: 'الكورسات' },
-                { path: '/blog', label: 'المقالات' },
-                { path: '/testimonials', label: 'آراء الناس' },
-                { path: '/booking', label: 'احجز جلسة' },
+                { path: '/courses', label: 'كورسات UI/UX' },
+                { path: '/blog', label: 'مقالات ونصائح' },
+                { path: '/testimonials', label: 'آراء المتدربين' },
+                { path: '/booking', label: 'احجز استشارة' },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
@@ -195,7 +179,7 @@ export function Footer() {
                 <span>القاهرة، مصر</span>
               </li>
             </ul>
-            
+
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 mt-6 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-xl hover:shadow-xl hover:shadow-[#C1AA7E]/20 transition-all group relative overflow-hidden font-semibold"
@@ -217,10 +201,10 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm flex items-center gap-2">
-              © {currentYear} أمير يسري. جميع الحقوق محفوظة.
+              © {currentYear} أمير يسري — مصمم UI/UX في مصر. جميع الحقوق محفوظة.
             </p>
             <p className="text-gray-400 text-sm flex items-center gap-2">
-              صُنع بـ 
+              صُنع بـ
               <Heart className="w-4 h-4 text-[#C1AA7E] fill-[#C1AA7E] animate-pulse" />
               في مصر 🇪🇬
             </p>
