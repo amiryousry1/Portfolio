@@ -1,13 +1,8 @@
-import image_b48e01759a31b8ea08049303a04d9cc47cc68e2a from 'figma:asset/b48e01759a31b8ea08049303a04d9cc47cc68e2a.png';
-import image_4a180dbf0412e1996c2a6f6179f02a33bfccc20b from 'figma:asset/4a180dbf0412e1996c2a6f6179f02a33bfccc20b.png';
-import heroImage from 'figma:asset/f394433b1d509fd1379007063298eb22bef5dad6.png';
 import { Link } from 'react-router-dom';
 import amirPhoto from '../assets/amir.jpg';
-import { ArrowLeft, Briefcase, Users, GraduationCap, Building2, Star, CheckCircle, Quote, Award, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowLeft, Briefcase, Users, GraduationCap, Building2, Star, Quote, Award, TrendingUp, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
-import { CounterAnimation } from '../components/CounterAnimation';
-
 export function HomePage() {
   const services = [
     {
@@ -16,9 +11,9 @@ export function HomePage() {
       description: 'بصمّم واجهات احترافية وتجارب مستخدم مبنية على أبحاث حقيقية — من الفكرة للمنتج النهائي.',
     },
     {
-      icon: Users,
-      title: 'Mentorship 1:1',
-      description: 'توجيه شخصي لمصممين UI/UX — بنبني معاك بورتفوليو ونحضرك لسوق العمل.',
+      icon: Sparkles,
+      title: 'Vibe Coding',
+      description: 'بحوّل التصميم لمنتج حقيقي شغال (MVP) في وقت قياسي باستخدام أقوى أدوات الذكاء الاصطناعي.',
     },
     {
       icon: GraduationCap,
@@ -56,27 +51,6 @@ export function HomePage() {
     },
   ];
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'إزاي تبدأ في مجال الـ UI/UX من الصفر؟',
-      excerpt: 'دليل شامل للمبتدئين اللي عايزين يدخلوا المجال بطريقة صحيحة...',
-      category: 'مقالات تعليمية',
-    },
-    {
-      id: 2,
-      title: 'الفرق بين UI و UX وإزاي تتعلمهم',
-      excerpt: 'كتير بيخلطوا بين المصطلحات دي، تعالى نفهمهم مع بعض...',
-      category: 'أساسيات',
-    },
-    {
-      id: 3,
-      title: 'أهم الأدوات اللي محتاجها كمصمم UI/UX',
-      excerpt: 'قائمة بأهم البرامج والأدوات اللي هتحتاجها في شغلك اليومي...',
-      category: 'أدوات',
-    },
-  ];
-
   const testimonials = [
     {
       name: 'محمد أحمد',
@@ -103,78 +77,36 @@ export function HomePage() {
       {/* ═══════════════════════════════════════════════════════════════
           HERO SECTION — Premium Immersive Design
       ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* ── Layered Animated Background ── */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Dot Grid Pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.04]"
-            style={{
-              backgroundImage: 'radial-gradient(circle, #C1AA7E 1px, transparent 1px)',
-              backgroundSize: '32px 32px',
+      <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden min-h-screen flex items-center">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 right-20 w-96 h-96 bg-[#C1AA7E]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#C1AA7E]/5 rounded-full blur-3xl"></div>
+
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 5, 0],
             }}
-          />
-
-          {/* Large Orbiting Gradient Blobs */}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-1/4 right-1/3 w-4 h-4 bg-[#C1AA7E] rounded-full opacity-60"
+          ></motion.div>
           <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]"
-          >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-br from-[#C1AA7E]/15 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-gradient-to-tl from-[#C1AA7E]/10 to-transparent rounded-full blur-3xl" />
-          </motion.div>
-
-          {/* Counter-rotating secondary orbit */}
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px]"
-          >
-            <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gradient-to-bl from-[#C1AA7E]/8 to-transparent rounded-full blur-2xl" />
-            <div className="absolute bottom-10 left-10 w-[200px] h-[200px] bg-gradient-to-tr from-[#d4c5a9]/8 to-transparent rounded-full blur-2xl" />
-          </motion.div>
-
-          {/* Animated line accents */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 2, delay: 1.5, ease: 'easeOut' }}
-            className="absolute top-[20%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C1AA7E]/15 to-transparent origin-left"
-          />
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 2, delay: 2, ease: 'easeOut' }}
-            className="absolute bottom-[25%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C1AA7E]/10 to-transparent origin-right"
-          />
-
-          {/* Floating Particles — upgraded with varying sizes and glow */}
-          {[...Array(30)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full"
-              style={{
-                width: `${2 + Math.random() * 4}px`,
-                height: `${2 + Math.random() * 4}px`,
-                background: `radial-gradient(circle, rgba(193,170,126,${0.4 + Math.random() * 0.4}) 0%, transparent 70%)`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                boxShadow: `0 0 ${6 + Math.random() * 8}px rgba(193,170,126,${0.15 + Math.random() * 0.2})`,
-              }}
-              animate={{
-                y: [0, -(20 + Math.random() * 40), 0],
-                x: [0, (Math.random() - 0.5) * 30, 0],
-                opacity: [0.15, 0.6, 0.15],
-              }}
-              transition={{
-                duration: 4 + Math.random() * 6,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: Math.random() * 3,
-              }}
-            />
-          ))}
+            animate={{
+              y: [0, 20, 0],
+              x: [0, -10, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[#C1AA7E] rounded-full opacity-40"
+          ></motion.div>
         </div>
 
         {/* ── Main Content ── */}
@@ -182,7 +114,7 @@ export function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
             {/* ── Left Column: Text Content ── */}
-            <div className="space-y-8 text-center lg:text-right order-2 lg:order-1">
+            <div dir="rtl" className="space-y-8 text-right order-2 lg:order-1 flex flex-col items-start w-full">
 
               {/* Animated Badge */}
               <motion.div
@@ -204,41 +136,21 @@ export function HomePage() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.9, delay: 0.4 }}
-                  className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.15]"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.2]"
                 >
                   <span className="block text-white mb-2">بحوّل أفكارك</span>
                   <span className="block bg-gradient-to-l from-[#C1AA7E] via-[#e8dcc8] to-[#C1AA7E] bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_ease-in-out_infinite]">
                     لمنتجات رقمية بتكسب
                   </span>
                 </motion.h1>
-
-                {/* Animated Role Tags */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                  className="flex flex-wrap gap-3 justify-center lg:justify-end pt-2"
-                >
-                  {['تصميم UI/UX', 'استشارات منتجات', 'تدريب فرق التصميم'].map((role, i) => (
-                    <motion.span
-                      key={role}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 1 + i * 0.15 }}
-                      className="text-sm sm:text-base px-4 py-1.5 rounded-lg bg-[#1a1f2e]/80 border border-[#C1AA7E]/15 text-gray-300 backdrop-blur-sm"
-                    >
-                      {role}
-                    </motion.span>
-                  ))}
-                </motion.div>
               </div>
 
               {/* Description */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0"
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl"
               >
                 مش بس بصمّم شاشات — بحل مشاكل حقيقية تخلّي المستخدم يرجعلك تاني والبيزنس يكبر.
                 شغلت مع{' '}
@@ -252,8 +164,8 @@ export function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.4 }}
-                className="flex flex-wrap gap-4 justify-center lg:justify-end pt-2"
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="flex flex-wrap gap-4 pt-2"
               >
                 <Link
                   to="/portfolio"

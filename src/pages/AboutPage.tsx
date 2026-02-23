@@ -1,30 +1,29 @@
-import image_4a180dbf0412e1996c2a6f6179f02a33bfccc20b from 'figma:asset/4a180dbf0412e1996c2a6f6179f02a33bfccc20b.png';
+import image_4a180dbf0412e1996c2a6f6179f02a33bfccc20b from '../assets/4a180dbf0412e1996c2a6f6179f02a33bfccc20b.png';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Target, Users, Lightbulb, TrendingUp } from 'lucide-react';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
 
 export function AboutPage() {
   const approach = [
     {
       icon: Target,
-      title: 'تفكير استراتيجي أولاً',
-      description: 'كل مشروع بيبدأ بفهم المشكلة — مش بالألوان والأشكال',
+      title: 'تفكير مش بس شكل',
+      description: 'كل تصميم بيبدأ بفهم المشكلة والهدف',
     },
     {
       icon: Users,
-      title: 'قرارات مبنية على بيانات',
-      description: 'بحث مستخدمين حقيقي + تحليل بيانات = تصميم ناجح',
+      title: 'حلول مبنية على بحث',
+      description: 'بحث المستخدمين وتحليل احتياجاتهم الحقيقية',
     },
     {
       icon: Lightbulb,
-      title: 'المستخدم أولاً',
-      description: 'تجربة المستخدم هي الأولوية — مش بس جزء من العملية',
+      title: 'تجربة قبل أي حاجة',
+      description: 'التركيز على تجربة المستخدم أولًا وأخيرًا',
     },
     {
       icon: TrendingUp,
-      title: 'نتائج قابلة للقياس',
-      description: 'كل تصميم بيحقق أهداف واضحة — تحسين Conversion، زيادة Engagement',
+      title: 'شغل عملي يطوّر المنتج',
+      description: 'نتائج قابلة للقياس وتحسين مستمر',
     },
   ];
 
@@ -83,13 +82,13 @@ export function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">عن أمير يسري</span>
+                <span className="text-[#C1AA7E] text-sm">من أنا؟</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 font-[IBM_Plex_Sans_Arabic] text-white">
-                أمير يسري — مصمم UI/UX ومدرب
+                أنا أمير يسري
               </h1>
               <p className="text-xl text-gray-300 font-[IBM_Plex_Sans_Arabic] leading-relaxed">
-                مصمم تجربة مستخدم بخبرة +4 سنين — بركّز على حل المشاكل الحقيقية قبل تصميم الشكل.
+                مصمم تجربة مستخدم… عقليتي دايمًا في حل المشاكل قبل تصميم الشكل.
               </p>
             </motion.div>
           </div>
@@ -107,18 +106,20 @@ export function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl lg:text-5xl mb-6 text-white">
-                رحلتي في تصميم تجربة المستخدم
+                رحلتي في التصميم
               </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  بدأت رحلتي في تصميم UI/UX من أكتر من 4 سنين — اشتغلت مع شركات في مصر، الكويت، والسعودية على مشاريع في مجالات الصحة، التعليم، الـ Fintech، والـ E-commerce.
+                  بدأت رحلتي في عالم الـ UI/UX من أكتر من 4 سنين، وخلال الفترة دي
+                  اشتغلت على مشاريع مختلفة في مجالات كتير.
                 </p>
                 <p>
                   كل مشروع علمني حاجة جديدة، وخلاني أفهم إن التصميم الحقيقي مش
                   بس شكل جميل… ده حل مشكلة حقيقية للمستخدم.
                 </p>
                 <p>
-                  دلوقتي بشتغل كـ Product Designer ومدرب UI/UX معتمد. درّبت أكتر من 3,000 طالب وبساعدهم يدخلوا المجال صح ويبنوا بورتفوليو يفتح لهم فرص شغل حقيقية.
+                  دلوقتي بشتغل مصمم، مدرب، وصانع محتوى. هدفي إني أساعد أكبر عدد
+                  من الناس يدخلوا المجال بشكل صحيح ويبنوا مستقبل مهني قوي.
                 </p>
               </div>
 
@@ -127,7 +128,7 @@ export function AboutPage() {
                   to="/portfolio"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
                 >
-                  <span>اكتشف أعمالي</span>
+                  <span>شوف شغلي</span>
                   <ArrowLeft className="w-5 h-5" />
                 </Link>
               </div>
@@ -162,7 +163,7 @@ export function AboutPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-5xl mb-12 text-center text-white"
           >
-            منهجي في التصميم
+            طريقتي في الشغل
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {approach.map((item, index) => {
@@ -237,7 +238,7 @@ export function AboutPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-5xl mb-6 text-white"
           >
-            عندك مشروع؟ يلا نشتغل مع بعض
+            عايز نشتغل مع بعض؟
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -246,7 +247,7 @@ export function AboutPage() {
             transition={{ delay: 0.2 }}
             className="text-xl mb-8 text-gray-400"
           >
-            سواء محتاج تصميم UI/UX لمنتجك أو استشارة في تحسين تجربة المستخدم — ابعتلي تفاصيل مشروعك.
+            سواء عندك مشروع جديد أو محتاج استشارة، أنا هنا عشان أساعدك.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

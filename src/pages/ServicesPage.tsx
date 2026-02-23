@@ -22,19 +22,20 @@ export function ServicesPage() {
     },
     {
       icon: Users,
-      title: 'إرشاد فردي (Mentorship)',
+      title: 'البرمجة بالذكاء الاصطناعي (Vibe Coding)',
       description:
-        'جلسات إرشاد فردية مخصصة ليك — هنشتغل مع بعض على بناء مهاراتك في UI/UX، نراجع بورتفوليو، ونحضرك لسوق العمل. أكتر من 200 طالب اشتغلوا بعد المنتورشيب.',
+        'بحوّل فكرتك أو الـ UI/UX ديزاين لمنتج حقيقي شغال في وقت قياسي. باستخدام الـ Vibe Coding وأقوى أدوات الـ AI، بنبني الـ MVP بتاعك بأعلى جودة عشان تتست فكرتك في السوق في أيام مش شهور.',
       features: [
-        'جلسات فردية مخصصة ليك',
-        'مراجعة وتطوير البورتفوليو',
-        'توجيه في مسار التعلم',
-        'نصائح عملية للدخول في سوق العمل',
-        'متابعة مستمرة لتقدمك',
-        'دعم حتى بعد انتهاء الجلسات',
+        'تحويل التصميم لكود حقيقي (React/Next.js)',
+        'تسليم الـ MVP في أيام بدل شهور',
+        'أكواد نظيفة وقابلة للتطوير (Scalable)',
+        'توفير تكلفة ووقت البرمجة التقليدية',
+        'تعديلات مرنة وسريعة بالـ AI',
+        'ربط الواجهات بقواعد البيانات',
       ],
-      price: 'من 500 جنيه',
-      duration: 'جلسة واحدة أو أكتر',
+      price: 'تسليم سريع',
+      duration: 'MVP',
+      buttonText: 'ابدأ مشروعك الآن',
     },
     {
       icon: GraduationCap,
@@ -152,7 +153,7 @@ export function ServicesPage() {
                       to="/contact"
                       className="inline-flex items-center gap-2 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
                     >
-                      <span>ابدأ الآن</span>
+                      <span>{(service as any).buttonText || 'ابدأ الآن'}</span>
                       <ArrowLeft className="w-5 h-5" />
                     </Link>
                   </div>

@@ -10,6 +10,8 @@ import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { ResumePage } from './pages/ResumePage';
+import { ArticlesPage } from './pages/ArticlesPage';
+import { ArticleDetailsPage } from './pages/ArticleDetailsPage';
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
             <Route path="/portfolio/:id" element={<ProjectDetailsPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/blog" element={<ArticlesPage />} />
+            <Route path="/blog/:id" element={<ArticleDetailsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/resume" element={<ResumePage />} />

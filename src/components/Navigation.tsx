@@ -13,6 +13,7 @@ export function Navigation() {
     { path: '/about', label: 'عني' },
     { path: '/portfolio', label: 'أعمالي' },
     { path: '/services', label: 'الخدمات' },
+    { path: '/blog', label: 'المقالات' },
     { path: '/contact', label: 'تواصل' },
   ];
 
@@ -49,8 +50,8 @@ export function Navigation() {
                 className="relative px-4 py-2 rounded-xl transition-all group"
               >
                 <span className={`relative z-10 transition-colors ${isActive(link.path)
-                    ? 'text-[#C1AA7E] font-medium'
-                    : 'text-gray-300 group-hover:text-[#C1AA7E]'
+                  ? 'text-[#C1AA7E] font-medium'
+                  : 'text-gray-300 group-hover:text-[#C1AA7E]'
                   }`}>
                   {link.label}
                 </span>
@@ -66,8 +67,8 @@ export function Navigation() {
 
                 {/* Hover Indicator */}
                 <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-[#C1AA7E] to-[#d4c5a9] transition-all duration-300 ${isActive(link.path)
-                    ? 'w-8'
-                    : 'w-0 group-hover:w-8'
+                  ? 'w-8'
+                  : 'w-0 group-hover:w-8'
                   }`} />
               </Link>
             ))}
@@ -139,8 +140,8 @@ export function Navigation() {
                       to={link.path}
                       onClick={() => setIsOpen(false)}
                       className={`px-4 py-3 rounded-xl transition-all flex items-center justify-between group ${isActive(link.path)
-                          ? 'bg-[#C1AA7E]/10 text-[#C1AA7E] font-medium border border-[#C1AA7E]/20'
-                          : 'text-gray-300 hover:bg-[#C1AA7E]/5'
+                        ? 'bg-[#C1AA7E]/10 text-[#C1AA7E] font-medium border border-[#C1AA7E]/20'
+                        : 'text-gray-300 hover:bg-[#C1AA7E]/5'
                         }`}
                     >
                       <span>{link.label}</span>
