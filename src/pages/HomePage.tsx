@@ -172,7 +172,7 @@ export function HomePage() {
                   className="group relative bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[#C1AA7E]/20 hover:shadow-2xl hover:shadow-[#C1AA7E]/40 hover:scale-[1.03] transition-all duration-300 inline-flex items-center gap-3 overflow-hidden"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <span className="relative">شوف نتايج شغلي</span>
+                  <span className="relative">شوف شغلي</span>
                   <ArrowLeft className="w-5 h-5 relative group-hover:-translate-x-1 transition-transform" />
                 </Link>
 
@@ -202,7 +202,7 @@ export function HomePage() {
                 {/* Orbiting skill badges */}
                 {[
                   { label: 'Figma', angle: 0 },
-                  { label: 'React', angle: 90 },
+                  { label: 'UX Writing', angle: 90 },
                   { label: 'UX Research', angle: 180 },
                   { label: 'Prototyping', angle: 270 },
                 ].map((skill) => (
