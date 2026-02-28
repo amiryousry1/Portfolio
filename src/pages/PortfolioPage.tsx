@@ -66,12 +66,12 @@ export function PortfolioPage() {
       : projects.filter((project) => project.tags.includes(selectedCategory));
 
   return (
-    <div className="min-h-screen bg-[#0f1419]">
+    <div className="w-full bg-[#0f1419]">
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-[#C1AA7E]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#C1AA7E]/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -81,8 +81,8 @@ export function PortfolioPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block mb-4 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">أعمالي</span>
+              <div className="inline-block mb-4 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
+                <span className="text-[#CBA135] text-sm">أعمالي</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 text-white">
                 أعمالي ومشاريعي في تصميم UI/UX
@@ -96,16 +96,16 @@ export function PortfolioPage() {
       </section>
 
       {/* Filters */}
-      <section className="py-12 border-b border-[#C1AA7E]/10">
+      <section className="py-12 border-b border-[#CBA135]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-xl transition-all font-medium ${selectedCategory === category
-                    ? 'bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] shadow-lg'
-                    : 'bg-[#1a1f2e] text-gray-300 border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40'
+                className={`px-6 py-2 rounded-full transition-all font-medium ${selectedCategory === category
+                  ? 'bg-gradient-to-br from-[#CBA135] to-[#a89363] text-[#0f1419] shadow-lg'
+                  : 'bg-[#1a1f2e] text-gray-300 border border-white/5 hover:border-[#CBA135]/30'
                   }`}
               >
                 {category}
@@ -129,7 +129,7 @@ export function PortfolioPage() {
                 className="group"
               >
                 <Link to={`/portfolio/${project.id}`} className="block">
-                  <div className="relative bg-gradient-to-br from-[#1a1f2e] to-[#151a25] rounded-2xl overflow-hidden border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40 transition-all shadow-xl hover:shadow-2xl hover:shadow-[#C1AA7E]/10">
+                  <div className="relative bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/5 hover:border-[#CBA135]/30 transition-all shadow-xl hover:shadow-2xl hover:shadow-[#CBA135]/10">
                     <div className="aspect-video overflow-hidden">
                       <ImageWithFallback
                         src={project.image}
@@ -142,7 +142,7 @@ export function PortfolioPage() {
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs bg-[#C1AA7E]/10 text-[#C1AA7E] border border-[#C1AA7E]/30 px-3 py-1 rounded-full"
+                            className="text-xs bg-[#CBA135]/10 text-[#CBA135] border border-[#CBA135]/30 px-3 py-1 rounded-full"
                           >
                             {tag}
                           </span>
@@ -150,7 +150,7 @@ export function PortfolioPage() {
                       </div>
                       <h3 className="text-xl mb-2 text-white">{project.title}</h3>
                       <p className="text-gray-400 mb-4">{project.description}</p>
-                      <div className="flex items-center gap-2 text-[#C1AA7E]">
+                      <div className="flex items-center gap-2 text-[#CBA135]">
                         <span>شوف التفاصيل</span>
                         <ArrowLeft className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -163,9 +163,9 @@ export function PortfolioPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#C1AA7E]/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#CBA135]/10 to-transparent"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -192,7 +192,7 @@ export function PortfolioPage() {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-xl hover:shadow-xl hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
+              className="inline-flex items-center gap-2 bg-gradient-to-br from-[#CBA135] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-full hover:shadow-xl hover:shadow-[#CBA135]/20 transition-all font-semibold"
             >
               <span>تواصل معايا</span>
               <ArrowLeft className="w-5 h-5" />

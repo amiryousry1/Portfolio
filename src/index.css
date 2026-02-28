@@ -81,6 +81,29 @@
   }
 }
 
+/* Orbit animation for hero skill badges — each badge moves in a circle while staying horizontal */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+@media (min-width: 640px) {
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg) translateX(220px) rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg) translateX(220px) rotate(-360deg);
+    }
+  }
+}
+
 /* Shimmer animation for hero name gradient */
 @keyframes shimmer {
   0% {

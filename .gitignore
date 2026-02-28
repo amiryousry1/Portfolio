@@ -124,3 +124,4 @@ out
 
 # Vite
 dist
+.vercel

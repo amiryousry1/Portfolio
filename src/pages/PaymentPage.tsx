@@ -147,7 +147,7 @@ export function PaymentPage() {
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-[#2D3F60] via-[#253447] to-[#2D3F60] py-16 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-[#C1AA7E]/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
         </div>
 
@@ -158,8 +158,8 @@ export function PaymentPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-block mb-3 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">الدفع الآمن</span>
+              <div className="inline-block mb-3 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
+                <span className="text-[#CBA135] text-sm">الدفع الآمن</span>
               </div>
               <h1 className="text-3xl lg:text-5xl mb-4 text-white">إتمام الدفع</h1>
               <p className="text-lg text-gray-300">
@@ -239,7 +239,7 @@ export function PaymentPage() {
                           value={cardData.cardNumber}
                           onChange={handleCardNumberChange}
                           placeholder="1234 5678 9012 3456"
-                          className={`w-full px-4 py-3 rounded-lg border ${
+                          className={`w-full px-4 py-3 rounded-full border ${
                             errors.cardNumber
                               ? 'border-red-500'
                               : 'border-gray-300'
@@ -266,7 +266,7 @@ export function PaymentPage() {
                             setCardData({ ...cardData, cardName: e.target.value })
                           }
                           placeholder="Ahmed Mohamed"
-                          className={`w-full px-4 py-3 rounded-lg border ${
+                          className={`w-full px-4 py-3 rounded-full border ${
                             errors.cardName
                               ? 'border-red-500'
                               : 'border-gray-300'
@@ -293,7 +293,7 @@ export function PaymentPage() {
                             onChange={handleExpiryChange}
                             placeholder="MM/YY"
                             maxLength={5}
-                            className={`w-full px-4 py-3 rounded-lg border ${
+                            className={`w-full px-4 py-3 rounded-full border ${
                               errors.expiryDate
                                 ? 'border-red-500'
                                 : 'border-gray-300'
@@ -321,7 +321,7 @@ export function PaymentPage() {
                             }
                             placeholder="123"
                             maxLength={3}
-                            className={`w-full px-4 py-3 rounded-lg border ${
+                            className={`w-full px-4 py-3 rounded-full border ${
                               errors.cvv
                                 ? 'border-red-500'
                                 : 'border-gray-300'
@@ -379,7 +379,7 @@ export function PaymentPage() {
                   <button
                     type="submit"
                     disabled={processing}
-                    className="w-full bg-[#2D3F60] text-white px-8 py-4 rounded-lg hover:bg-[#253447] transition-colors flex items-center justify-center gap-3 text-lg mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-[#2D3F60] text-white px-8 py-4 rounded-full hover:bg-[#253447] transition-colors flex items-center justify-center gap-3 text-lg mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {processing ? (
                       <>
@@ -474,7 +474,7 @@ export function PaymentPage() {
 
                 <button
                   onClick={() => navigate(-1)}
-                  className="w-full mt-4 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                  className="w-full mt-4 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>رجوع</span>

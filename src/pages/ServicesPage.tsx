@@ -72,12 +72,12 @@ export function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0f1419]">
+    <div className="w-full bg-[#0f1419]">
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-[#C1AA7E]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#C1AA7E]/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -87,8 +87,8 @@ export function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block mb-4 px-4 py-2 bg-[#C1AA7E]/20 rounded-full border border-[#C1AA7E]/30">
-                <span className="text-[#C1AA7E] text-sm">الخدمات</span>
+              <div className="inline-block mb-4 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
+                <span className="text-[#CBA135] text-sm">الخدمات</span>
               </div>
               <h1 className="text-4xl lg:text-6xl mb-6 text-white">
                 خدمات التصميم والتدريب في UI/UX
@@ -117,16 +117,16 @@ export function ServicesPage() {
                   transition={{ delay: index * 0.1 }}
                   className="relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#C1AA7E]/10 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative bg-gradient-to-br from-[#1a1f2e] to-[#151a25] p-8 rounded-3xl border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40 transition-all shadow-xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#CBA135]/10 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="relative bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 hover:border-[#CBA135]/30 transition-all shadow-xl">
                     <div className="flex items-start gap-4 mb-6">
-                      <div className="w-16 h-16 bg-[#C1AA7E]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C1AA7E]/20 transition-all">
-                        <Icon className="w-8 h-8 text-[#C1AA7E]" />
+                      <div className="w-16 h-16 bg-[#CBA135]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#CBA135]/20 transition-all">
+                        <Icon className="w-8 h-8 text-[#CBA135]" />
                       </div>
                       <div>
                         <h3 className="text-2xl mb-2 text-white">{service.title}</h3>
                         <div className="flex flex-wrap gap-3 text-sm">
-                          <span className="text-[#C1AA7E] bg-[#C1AA7E]/10 px-3 py-1 rounded-full border border-[#C1AA7E]/30">
+                          <span className="text-[#CBA135] bg-[#CBA135]/10 px-3 py-1 rounded-full border border-[#CBA135]/30">
                             {service.price}
                           </span>
                           <span className="text-gray-400 bg-[#1a1f2e] px-3 py-1 rounded-full border border-gray-700">
@@ -143,7 +143,7 @@ export function ServicesPage() {
                     <div className="space-y-3 mb-8">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#C1AA7E] flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-[#CBA135] flex-shrink-0 mt-0.5" />
                           <span className="text-gray-400">{feature}</span>
                         </div>
                       ))}
@@ -151,7 +151,7 @@ export function ServicesPage() {
 
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
+                      className="inline-flex items-center gap-2 bg-gradient-to-br from-[#CBA135] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-full hover:shadow-lg hover:shadow-[#CBA135]/20 transition-all font-semibold"
                     >
                       <span>{(service as any).buttonText || 'ابدأ الآن'}</span>
                       <ArrowLeft className="w-5 h-5" />
@@ -164,9 +164,9 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#C1AA7E]/10 to-transparent"></div>
+      {/* CTA Section */}
+      <section className="relative py-20 overflow-hidden text-center z-10 px-4">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#CBA135]/10 to-transparent"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -193,7 +193,7 @@ export function ServicesPage() {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-xl hover:shadow-xl hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
+              className="inline-flex items-center gap-2 bg-gradient-to-br from-[#CBA135] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-full hover:shadow-xl hover:shadow-[#CBA135]/20 transition-all font-semibold"
             >
               <span>تواصل معايا</span>
               <ArrowLeft className="w-5 h-5" />

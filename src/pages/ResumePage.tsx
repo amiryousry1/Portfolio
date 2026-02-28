@@ -86,11 +86,6 @@ export function ResumePage() {
 
   const projects = [
     {
-      name: 'موقع الجامعة العربية المفتوحة (AOU)',
-      period: 'أغسطس 2024 – يناير 2025',
-      description: 'صممت وطورت موقع الجامعة العربية المفتوحة (ومقرها الرئيسي الكويت) وليها 9 فروع في دول زي الكويت، البحرين، الأردن، عمان، السعودية، لبنان، فلسطين، السودان، ومصر.',
-    },
-    {
       name: 'AM Menu (نظام POS) - مشروع SaaS',
       period: 'أبريل 2025 – يونيو 2025',
       description: 'ده نظام نقاط بيع (POS) سعودي متكامل للمطاعم والكافيهات. بيشمل ويب أبليكيشن ولوحة تحكم (Dashboard) قوية لإدارة الطلبات، المنيو، الموظفين، والمبيعات. النظام بيركز على السهولة، السرعة، والتحليلات الفورية عشان يساعد البزنس ياخد قرارات مبنية على بيانات.',
@@ -144,7 +139,7 @@ export function ResumePage() {
   return (
     <div className="min-h-screen bg-[#0f1419]">
       {/* Header */}
-      <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-12 border-b border-[#C1AA7E]/10">
+      <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-12 border-b border-[#CBA135]/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -153,7 +148,7 @@ export function ResumePage() {
           >
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-[#C1AA7E] hover:text-[#d4c5a9] mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-[#CBA135] hover:text-[#d4c5a9] mb-6 transition-colors"
             >
               <ArrowLeft className="w-5 h-5 rotate-180" />
               <span>رجوع للرئيسية</span>
@@ -162,11 +157,11 @@ export function ResumePage() {
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8">
               <div>
                 <h1 className="text-4xl lg:text-5xl text-white mb-2">{profile.name}</h1>
-                <p className="text-xl text-[#C1AA7E]">{profile.title}</p>
+                <p className="text-xl text-[#CBA135]">{profile.title}</p>
               </div>
               <button
                 onClick={() => window.print()}
-                className="bg-gradient-to-br from-[#C1AA7E] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#C1AA7E]/20 transition-all font-semibold"
+                className="bg-gradient-to-br from-[#CBA135] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-full hover:shadow-lg hover:shadow-[#CBA135]/20 transition-all font-semibold"
               >
                 طباعة / تحميل PDF
               </button>
@@ -175,19 +170,19 @@ export function ResumePage() {
             {/* Contact Info */}
             <div className="flex flex-wrap gap-6 text-gray-400">
               <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-[#C1AA7E]" />
-                <a href={`mailto:${profile.email}`} className="hover:text-[#C1AA7E] transition-colors">
+                <Mail className="w-5 h-5 text-[#CBA135]" />
+                <a href={`mailto:${profile.email}`} className="hover:text-[#CBA135] transition-colors">
                   {profile.email}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-[#C1AA7E]" />
-                <a href={`tel:${profile.phone}`} className="hover:text-[#C1AA7E] transition-colors">
+                <Phone className="w-5 h-5 text-[#CBA135]" />
+                <a href={`tel:${profile.phone}`} className="hover:text-[#CBA135] transition-colors">
                   {profile.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-[#C1AA7E]" />
+                <MapPin className="w-5 h-5 text-[#CBA135]" />
                 <span>{profile.location}</span>
               </div>
             </div>
@@ -204,12 +199,12 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <Briefcase className="w-6 h-6 text-[#CBA135]" />
             </div>
             الملف الشخصي
           </h2>
-          <div className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] p-6 rounded-2xl border border-[#C1AA7E]/20 space-y-4">
+          <div className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md p-6 rounded-2xl border border-white/5 space-y-4">
             {profile.summary.map((para, index) => (
               <p key={index} className="text-gray-300 leading-relaxed">
                 {para}
@@ -226,8 +221,8 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <Briefcase className="w-6 h-6 text-[#CBA135]" />
             </div>
             خبرة العمل
           </h2>
@@ -239,19 +234,19 @@ export function ResumePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] p-6 rounded-2xl border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40 transition-all"
+                className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-[#CBA135]/30 transition-all"
               >
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                   <div>
                     <h3 className="text-xl text-white mb-1">{job.title}</h3>
-                    <p className="text-[#C1AA7E]">{job.company}</p>
+                    <p className="text-[#CBA135]">{job.company}</p>
                   </div>
                   <span className="text-gray-400 text-sm whitespace-nowrap">{job.period}</span>
                 </div>
                 <ul className="space-y-2">
                   {job.responsibilities.map((resp, idx) => (
                     <li key={idx} className="text-gray-300 flex items-start gap-2">
-                      <span className="text-[#C1AA7E] mt-1">•</span>
+                      <span className="text-[#CBA135] mt-1">•</span>
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -269,8 +264,8 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <Code className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <Code className="w-6 h-6 text-[#CBA135]" />
             </div>
             المشاريع
           </h2>
@@ -282,7 +277,7 @@ export function ResumePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] p-6 rounded-2xl border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40 transition-all"
+                className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-[#CBA135]/30 transition-all"
               >
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
                   <h3 className="text-lg text-white font-medium">{project.name}</h3>
@@ -302,16 +297,16 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <GraduationCap className="w-6 h-6 text-[#CBA135]" />
             </div>
             التعليم
           </h2>
-          <div className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] p-6 rounded-2xl border border-[#C1AA7E]/20">
+          <div className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md p-6 rounded-2xl border border-white/5">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
               <div>
                 <h3 className="text-xl text-white mb-1">{education.degree}</h3>
-                <p className="text-[#C1AA7E]">{education.institution}</p>
+                <p className="text-[#CBA135]">{education.institution}</p>
               </div>
               <span className="text-gray-400 text-sm">{education.period}</span>
             </div>
@@ -326,8 +321,8 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <Code className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <Code className="w-6 h-6 text-[#CBA135]" />
             </div>
             المهارات
           </h2>
@@ -339,7 +334,7 @@ export function ResumePage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] text-white px-5 py-3 rounded-xl border border-[#C1AA7E]/20 hover:border-[#C1AA7E]/40 transition-all"
+                className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md text-white px-5 py-3 rounded-full border border-white/5 hover:border-[#CBA135]/30 transition-all"
               >
                 {skill}
               </motion.span>
@@ -355,16 +350,16 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <Award className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <Award className="w-6 h-6 text-[#CBA135]" />
             </div>
             الشهادات
           </h2>
-          <div className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] p-6 rounded-2xl border border-[#C1AA7E]/20">
+          <div className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md p-6 rounded-2xl border border-white/5">
             <ul className="space-y-3">
               {certificates.map((cert, index) => (
                 <li key={index} className="text-gray-300 flex items-start gap-2">
-                  <span className="text-[#C1AA7E] mt-1">✓</span>
+                  <span className="text-[#CBA135] mt-1">✓</span>
                   <span>{cert}</span>
                 </li>
               ))}
@@ -380,8 +375,8 @@ export function ResumePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C1AA7E]/10 rounded-lg flex items-center justify-center">
-              <Languages className="w-6 h-6 text-[#C1AA7E]" />
+            <div className="w-10 h-10 bg-[#CBA135]/10 rounded-lg flex items-center justify-center">
+              <Languages className="w-6 h-6 text-[#CBA135]" />
             </div>
             اللغات
           </h2>
@@ -389,7 +384,7 @@ export function ResumePage() {
             {languages.map((lang, index) => (
               <span
                 key={index}
-                className="bg-gradient-to-br from-[#1a1f2e] to-[#151a25] text-white px-6 py-3 rounded-xl border border-[#C1AA7E]/20"
+                className="bg-gradient-to-br from-[#1a1f2e]/80 to-[#1a1f2e]/40 backdrop-blur-md text-white px-6 py-3 rounded-full border border-white/5"
               >
                 {lang}
               </span>
@@ -413,8 +408,8 @@ export function ResumePage() {
           .text-gray-300, .text-gray-400 {
             color: #333 !important;
           }
-          .border-\\[\\#C1AA7E\\]\\/20 {
-            border-color: #C1AA7E !important;
+          .border-\\[\\#CBA135\\]\\/20 {
+            border-color: #CBA135 !important;
           }
           button {
             display: none !important;

@@ -12,6 +12,7 @@ import { PaymentPage } from './pages/PaymentPage';
 import { ResumePage } from './pages/ResumePage';
 import { ArticlesPage } from './pages/ArticlesPage';
 import { ArticleDetailsPage } from './pages/ArticleDetailsPage';
+import { MiroChatbot } from './components/MiroChatbot';
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <MiroChatbot />
       </div>
     </Router>
   );
