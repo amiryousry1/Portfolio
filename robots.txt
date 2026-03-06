@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.amiryousry.online/sitemap.xml
+
+# Amir Yousry Portfolio
+# https://www.amiryousry.online
