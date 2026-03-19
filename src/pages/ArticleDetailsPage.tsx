@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowRight, Clock, CalendarDays, Facebook, Linkedin, Link as LinkIcon, User, ChevronLeft } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ArrowRight, Clock, CalendarDays, Facebook, Linkedin, Link as LinkIcon, ChevronLeft, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { articlesData } from '../data/articles';
+import amirPhoto from '../assets/amir.jpg';
+import { useSEO } from '../utils/useSEO';
 
 export function ArticleDetailsPage() {
     const { id } = useParams();
     const article = articlesData.find(a => a.id === id);
+    const [showToast, setShowToast] = useState(false);
+    useSEO({
+        title: article?.title || 'مقال',
+        description: article?.excerpt || 'مقال في مجال الـ UI/UX',
+        path: `/blog/${id}`
+    });
 
     if (!article) {
         return (
@@ -93,9 +102,7 @@ export function ArticleDetailsPage() {
                         className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-400"
                     >
                         <span className="flex items-center gap-2">
-                            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#CBA135] to-[#8a7553] flex items-center justify-center">
-                                <User className="w-3.5 h-3.5 text-[#0f1419]" />
-                            </div>
+                            <img src={amirPhoto} alt="أمير يسري" className="w-8 h-8 rounded-full object-cover border-2 border-[#CBA135]/30" />
                             <span className="font-medium text-gray-300">أمير يسري</span>
                         </span>
                         <span className="hidden sm:block w-1 h-1 rounded-full bg-gray-600"></span>
@@ -123,17 +130,17 @@ export function ArticleDetailsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="relative mb-12"
+                    className="relative mb-16"
                 >
                     <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#CBA135] to-[#CBA135]/20 rounded-full"></div>
-                    <p className="text-lg sm:text-xl text-gray-300 leading-loose pr-6 font-light">
+                    <p className="text-xl sm:text-2xl text-gray-200 leading-[2] pr-6 font-light first-letter:text-5xl first-letter:font-bold first-letter:text-[#CBA135] first-letter:float-right first-letter:ml-3 first-letter:mt-1">
                         {article.excerpt}
                     </p>
                 </motion.div>
 
                 {/* Content Sections */}
                 {article.content && (
-                    <div className="space-y-8 mb-16">
+                    <div className="space-y-12 mb-20">
                         {article.content.map((section, index) => (
                             <motion.div
                                 key={index}
@@ -141,28 +148,46 @@ export function ArticleDetailsPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ delay: index * 0.08, duration: 0.6 }}
-                                className={`group relative rounded-2xl transition-all duration-300 ${section.isHighlight
-                                    ? 'bg-gradient-to-br from-[#CBA135]/10 via-[#1a1f2e] to-[#1a1f2e] border border-white/5 p-6 sm:p-8 shadow-lg shadow-[#CBA135]/5'
-                                    : 'bg-[#1a1f2e]/50 border border-white/5 hover:border-[#CBA135]/10 p-6 sm:p-8'
+                                className={`group relative transition-all duration-300 ${section.isHighlight
+                                    ? 'bg-gradient-to-br from-[#CBA135]/10 via-[#1a1f2e] to-[#1a1f2e] border border-[#CBA135]/20 rounded-2xl p-8 sm:p-10 shadow-lg shadow-[#CBA135]/5'
+                                    : ''
                                     }`}
                             >
                                 {/* Highlight accent bar */}
                                 {section.isHighlight && (
-                                    <div className="absolute right-0 top-4 bottom-4 w-1 bg-gradient-to-b from-[#CBA135] to-[#CBA135]/30 rounded-full"></div>
+                                    <div className="absolute right-0 top-6 bottom-6 w-1 bg-gradient-to-b from-[#CBA135] to-[#CBA135]/30 rounded-full"></div>
                                 )}
 
-                                <h3 className={`text-xl sm:text-2xl font-bold mb-5 flex items-center gap-3 ${section.isHighlight ? 'text-[#CBA135]' : 'text-white'
+                                {/* Section Header */}
+                                <h3 className={`text-2xl sm:text-3xl font-bold mb-8 flex items-center gap-4 ${section.isHighlight ? 'text-[#CBA135]' : 'text-white'
                                     }`}>
-                                    {section.isHighlight && <span className="text-2xl">💡</span>}
+                                    {section.isHighlight ? (
+                                        <span className="text-3xl">💡</span>
+                                    ) : (
+                                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#CBA135]/15 flex items-center justify-center text-sm font-bold text-[#CBA135]">
+                                            {index + 1}
+                                        </span>
+                                    )}
                                     {section.title}
                                 </h3>
-                                <div className="space-y-4">
+
+                                <div className="space-y-5">
                                     {section.content.map((paragraph, pIndex) => (
-                                        <p key={pIndex} className="text-gray-300/90 leading-[1.9] text-[0.95rem]">
+                                        <p key={pIndex} className={`text-gray-300/90 leading-[2.1] text-base sm:text-lg ${!section.isHighlight && pIndex > 0 ? 'pr-4 border-r-2 border-white/5 mr-2' : ''
+                                            }`}>
                                             {paragraph}
                                         </p>
                                     ))}
                                 </div>
+
+                                {/* Section divider */}
+                                {!section.isHighlight && (
+                                    <div className="mt-10 flex items-center gap-3">
+                                        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-white/5 to-transparent"></div>
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#CBA135]/30"></div>
+                                        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-white/5 to-transparent"></div>
+                                    </div>
+                                )}
                             </motion.div>
                         ))}
                     </div>
@@ -182,15 +207,32 @@ export function ArticleDetailsPage() {
                                 <p className="text-sm text-gray-500">ساعد غيرك يستفيد 🚀</p>
                             </div>
                             <div className="flex items-center gap-3">
-                                <button className="group px-4 py-2.5 bg-white/5 hover:bg-[#1877F2]/10 border border-white/10 hover:border-[#1877F2]/30 text-gray-400 hover:text-[#1877F2] rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium">
+                                <a
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group px-4 py-2.5 bg-white/5 hover:bg-[#1877F2]/10 border border-white/10 hover:border-[#1877F2]/30 text-gray-400 hover:text-[#1877F2] rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium"
+                                >
                                     <Facebook className="w-4 h-4" />
                                     Facebook
-                                </button>
-                                <button className="group px-4 py-2.5 bg-white/5 hover:bg-[#0A66C2]/10 border border-white/10 hover:border-[#0A66C2]/30 text-gray-400 hover:text-[#0A66C2] rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium">
+                                </a>
+                                <a
+                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group px-4 py-2.5 bg-white/5 hover:bg-[#0A66C2]/10 border border-white/10 hover:border-[#0A66C2]/30 text-gray-400 hover:text-[#0A66C2] rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium"
+                                >
                                     <Linkedin className="w-4 h-4" />
                                     LinkedIn
-                                </button>
-                                <button className="group px-4 py-2.5 bg-white/5 hover:bg-[#CBA135]/10 border border-white/10 hover:border-[#CBA135]/30 text-gray-400 hover:text-[#CBA135] rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium">
+                                </a>
+                                <button
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(window.location.href);
+                                        setShowToast(true);
+                                        setTimeout(() => setShowToast(false), 2000);
+                                    }}
+                                    className="group px-4 py-2.5 bg-white/5 hover:bg-[#CBA135]/10 border border-white/10 hover:border-[#CBA135]/30 text-gray-400 hover:text-[#CBA135] rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium"
+                                >
                                     <LinkIcon className="w-4 h-4" />
                                     نسخ
                                 </button>
@@ -248,6 +290,26 @@ export function ArticleDetailsPage() {
                 )}
 
             </div>
+
+            {/* Toast Popup */}
+            <AnimatePresence>
+                {showToast && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[9999]"
+                    >
+                        <div className="flex items-center gap-3 bg-[#1a1f2e] border border-[#CBA135]/30 text-white px-6 py-3.5 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-xl">
+                            <div className="w-7 h-7 rounded-full bg-[#CBA135]/20 flex items-center justify-center">
+                                <Check className="w-4 h-4 text-[#CBA135]" />
+                            </div>
+                            <span className="text-sm font-medium">تم نسخ اللينك! ✅</span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

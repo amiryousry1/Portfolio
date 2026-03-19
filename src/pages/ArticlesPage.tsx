@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { Search, ArrowLeft, Clock, CalendarDays } from 'lucide-react';
 import { motion } from 'motion/react';
 import { articlesData } from '../data/articles';
+import { useSEO } from '../utils/useSEO';
 
 export function ArticlesPage() {
     const [activeCategory, setActiveCategory] = useState('الكل');
+    useSEO({ title: 'المقالات', description: 'مقالات وأفكار في عالم الـ UI/UX — أدوات، أساسيات، تحسينات، وتجارب شخصية من أمير يسري.', path: '/blog' });
 
     const categories = ['الكل', 'مقالات عامة', 'أساسيات', 'أدوات', 'تجارب شخصية', 'تحسينات'];
 
@@ -16,34 +18,55 @@ export function ArticlesPage() {
     return (
         <div className="min-h-screen bg-[#0f1419]">
             {/* Hero */}
-            <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden mb-12 lg:mb-16">
+            <section className="relative bg-gradient-to-br from-[#0a0d12] via-[#0f1419] to-[#1a1f2e] py-28 lg:py-36 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#CBA135]/8 rounded-full blur-[130px]"></div>
+                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
+                    {/* Floating category labels */}
+                    <div className="absolute top-12 right-8 hidden lg:flex flex-col gap-3 opacity-20">
+                        {['UX Research', 'Product Design', 'Figma Tips'].map((t) => (
+                            <span key={t} className="px-3 py-1.5 text-xs rounded-full border border-[#CBA135]/30 text-[#CBA135] text-center">{t}</span>
+                        ))}
+                    </div>
+                    <div className="absolute top-12 left-8 hidden lg:flex flex-col gap-3 opacity-20">
+                        {['Career Tips', 'UI Patterns', 'Case Studies'].map((t) => (
+                            <span key={t} className="px-3 py-1.5 text-xs rounded-full border border-[#CBA135]/30 text-[#CBA135] text-center">{t}</span>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <div className="inline-block mb-4 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
-                                <span className="text-[#CBA135] text-sm">المقالات</span>
-                            </div>
-                            <h1 className="text-4xl lg:text-6xl mb-6 text-white">
-                                معلومات كتير... في كلام بسيط
+                    <div className="max-w-4xl mx-auto text-center">
+                        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+                            {/* Badge */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-[#CBA135]/15 rounded-full border border-[#CBA135]/40 backdrop-blur-sm"
+                            >
+                                <span className="w-2 h-2 rounded-full bg-[#CBA135] animate-pulse inline-block"></span>
+                                <span className="text-[#CBA135] text-sm font-medium tracking-widest uppercase">المقالات</span>
+                            </motion.div>
+
+                            {/* H1 */}
+                            <h1 className="font-bold text-white mb-8 leading-tight whitespace-normal lg:whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                                <span>أفكار </span>
+                                <span className="bg-gradient-to-l from-[#CBA135] via-[#d4c5a9] to-[#CBA135] bg-clip-text text-transparent">
+                                    تصنع فرق
+                                </span>
                             </h1>
-                            <p className="text-xl text-gray-300 leading-relaxed">
-                                مقالات سريعة وعملية عن الـ UI/UX، الأدوات والخبرات.
+
+                            {/* Subtitle */}
+                            <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                                أفكار لا تُصمم، بل تُكتب.
                             </p>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 mt-12">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     {/* Search bar */}
                     <div className="relative w-full md:w-80">
@@ -77,7 +100,7 @@ export function ArticlesPage() {
 
             {/* Articles Grid */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredArticles.map((article, index) => (
                         <motion.div
                             key={article.id}
@@ -86,36 +109,45 @@ export function ArticlesPage() {
                             transition={{ delay: index * 0.1 }}
                             className="group flex flex-col h-full"
                         >
-                            <Link to={`/blog/${article.id}`} className="flex-1 bg-gradient-to-br from-[#1a1f2e]/80 to-[#151a25]/80 border border-[#CBA135]/10 group-hover:border-[#CBA135]/30 rounded-3xl p-6 sm:p-8 transition-all hover:-translate-y-2 shadow-xl flex flex-col">
-                                <div className="mb-4 flex items-center justify-between">
-                                    <span className="text-xs font-semibold px-3 py-1 bg-[#CBA135]/10 text-[#CBA135] rounded-full border border-white/5">
-                                        {article.category}
-                                    </span>
-                                </div>
+                            <Link to={`/blog/${article.id}`} className="relative flex-1 bg-[#151a25] border border-white/5 group-hover:border-[#CBA135]/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#CBA135]/5 flex flex-col">
+                                {/* Top gold accent bar */}
+                                <div className="h-1 w-full bg-gradient-to-l from-transparent via-[#CBA135]/60 to-transparent group-hover:via-[#CBA135] transition-all duration-300"></div>
 
-                                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#CBA135] transition-colors leading-relaxed">
-                                    {article.title}
-                                </h3>
-
-                                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
-                                    {article.excerpt}
-                                </p>
-
-                                <div className="flex items-center justify-between mt-auto pt-6 border-t border-[#CBA135]/10">
-                                    <div className="flex items-center gap-4 text-xs text-gray-500">
-                                        <span className="flex items-center gap-1.5">
-                                            <CalendarDays className="w-3.5 h-3.5" />
-                                            {article.date}
-                                        </span>
-                                        <span className="flex items-center gap-1.5">
-                                            <Clock className="w-3.5 h-3.5" />
-                                            {article.readTime}
+                                <div className="p-7 flex flex-col flex-1">
+                                    {/* Category badge */}
+                                    <div className="mb-5">
+                                        <span className="text-xs font-semibold px-3.5 py-1.5 bg-[#CBA135]/10 text-[#CBA135] rounded-lg border border-[#CBA135]/20">
+                                            {article.category}
                                         </span>
                                     </div>
 
-                                    <div className="text-[#CBA135] flex items-center gap-1 text-sm font-medium">
-                                        <span>اقرأ المزيد</span>
-                                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                    {/* Title */}
+                                    <h3 className="text-lg font-bold text-white mb-4 group-hover:text-[#CBA135] transition-colors leading-relaxed">
+                                        {article.title}
+                                    </h3>
+
+                                    {/* Excerpt */}
+                                    <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                                        {article.excerpt}
+                                    </p>
+
+                                    {/* Footer */}
+                                    <div className="flex items-center justify-between pt-5 border-t border-white/5">
+                                        <div className="flex items-center gap-4 text-xs text-gray-500">
+                                            <span className="flex items-center gap-1.5">
+                                                <CalendarDays className="w-3.5 h-3.5" />
+                                                {article.date}
+                                            </span>
+                                            <span className="flex items-center gap-1.5">
+                                                <Clock className="w-3.5 h-3.5" />
+                                                {article.readTime}
+                                            </span>
+                                        </div>
+
+                                        <div className="text-[#CBA135] flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all">
+                                            <span>اقرأ</span>
+                                            <ArrowLeft className="w-4 h-4" />
+                                        </div>
                                     </div>
                                 </div>
                             </Link>

@@ -78,6 +78,32 @@
     font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Global line-height to prevent Arabic dot clipping */
+    line-height: 1.8;
+  }
+
+  /* Fix clipped Arabic diacritics / dots on all headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.8;
+    overflow: visible;
+    padding-block: 0.25em;
+  }
+
+  /* Improve paragraph readability */
+  p {
+    line-height: 1.85;
+    margin-bottom: 0;
+  }
+
+  /* Global text selection styles matching the theme color */
+  ::selection {
+    background-color: #CBA135;
+    color: #0f1419;
   }
 }
 
@@ -116,5 +142,18 @@
 
   100% {
     background-position: 0% center;
+  }
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

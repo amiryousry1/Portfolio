@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Star, Quote } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useSEO } from '../utils/useSEO';
 
 export function TestimonialsPage() {
+  useSEO({ title: 'آراء العملاء', description: 'آراء عملاء ومتدربين حقيقيين عن تجربتهم مع أمير يسري في مجال الـ UI/UX.', path: '/testimonials' });
   const testimonials = [
     {
       name: 'محمد أحمد',

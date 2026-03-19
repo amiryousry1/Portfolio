@@ -186,8 +186,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 text-gray-400 group">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:text-[#CBA135] transition-colors" />
-                <a href="tel:+201069144823" className="hover:text-[#CBA135] transition-colors" dir="ltr">
-                  +20 106 914 4823
+                <a href="https://wa.me/201069144823?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D9%85%D9%8A%D8%B1%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D8%A8%D9%88%D8%B1%D8%AA%D9%81%D9%88%D9%84%D9%8A%D9%88%20%D8%A8%D8%AA%D8%A7%D8%B9%D9%83%20%D9%88%D9%85%D9%87%D8%AA%D9%85%20%D9%86%D8%AA%D9%86%D8%A7%D9%82%D8%B4%20%D9%81%D9%8A%20%D8%B4%D8%BA%D9%84." target="_blank" rel="noopener noreferrer" className="hover:text-[#CBA135] transition-colors" dir="rtl">
+                  تواصل عبر الواتساب
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-400">

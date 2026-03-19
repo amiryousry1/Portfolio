@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, XCircle, Loader2, ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useSEO } from '../utils/useSEO';
 
 
 const countryCodes = [
@@ -14,6 +15,7 @@ const countryCodes = [
 ];
 
 export function ContactPage() {
+  useSEO({ title: 'تواصل معايا', description: 'تواصل مع أمير يسري لمشاريع تصميم UI/UX أو استشارات. متاح لمشاريع جديدة دلوقتي.', path: '/contact' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -125,8 +127,8 @@ export function ContactPage() {
     {
       icon: Phone,
       label: 'الموبايل',
-      value: '+20 106 914 4823',
-      href: 'tel:+201069144823',
+      value: 'تواصل عبر الواتساب',
+      href: 'https://wa.me/201069144823?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D9%85%D9%8A%D8%B1%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D8%A8%D9%88%D8%B1%D8%AA%D9%81%D9%88%D9%84%D9%8A%D9%88%20%D8%A8%D8%AA%D8%A7%D8%B9%D9%83%20%D9%88%D9%85%D9%87%D8%AA%D9%85%20%D9%86%D8%AA%D9%86%D8%A7%D9%82%D8%B4%20%D9%81%D9%8A%20%D8%B4%D8%BA%D9%84.',
     },
     {
       icon: MapPin,
@@ -138,28 +140,43 @@ export function ContactPage() {
   return (
     <div className="min-h-screen bg-[#0f1419]">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0a0d12] via-[#0f1419] to-[#1a1f2e] py-28 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-1/3 w-[700px] h-[500px] bg-[#CBA135]/7 rounded-full blur-[130px]"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block mb-4 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
-                <span className="text-[#CBA135] text-sm">تواصل معايا</span>
-              </div>
-              <h1 className="text-4xl lg:text-6xl mb-6 text-white">
-                تواصل معايا — ابدأ مشروعك النهاردة
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+              {/* Badge */}
+              <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-[#CBA135]/15 rounded-full border border-[#CBA135]/40 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block"></span>
+                <span className="text-[#CBA135] text-sm font-medium">متاح لمشاريع جديدة الآن</span>
+              </motion.div>
+
+              <h1 className="font-bold text-white mb-8 leading-tight whitespace-normal lg:whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                <span>خلينا نبني </span>
+                <span className="bg-gradient-to-l from-[#CBA135] via-[#d4c5a9] to-[#CBA135] bg-clip-text text-transparent">
+                  حاجة تفرق
+                </span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                عندك مشروع محتاج تصميم UI/UX؟ أو عايز استشارة؟ ابعتلي رسالة وهرد عليك خلال 24 ساعة.
+
+              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-12">
+                حاسس بإن منتجك الرقمي محتاج تصميم أحسن؟ كلّمني وهناسب لك خطة عمل واضحة ، وبرد عليك خلال 24 ساعة.
               </p>
+
+              {/* CTAs */}
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="flex flex-wrap gap-4 justify-center">
+                <a
+                  href="https://wa.me/201069144823?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D9%85%D9%8A%D8%B1%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D8%A8%D9%88%D8%B1%D8%AA%D9%81%D9%88%D9%84%D9%8A%D9%88%20%D8%A8%D8%AA%D8%A7%D8%B9%D9%83%20%D9%88%D9%85%D9%87%D8%AA%D9%85%20%D9%86%D8%AA%D9%86%D8%A7%D9%82%D8%B4%20%D9%81%D9%8A%20%D8%B4%D8%BA%D9%84."
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-l from-[#CBA135] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-full font-bold shadow-lg shadow-[#CBA135]/20 hover:shadow-xl hover:shadow-[#CBA135]/30 transition-all hover:scale-105"
+                >
+                  <span>تواصل عبر الواتساب</span>
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>

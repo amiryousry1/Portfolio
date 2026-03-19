@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Briefcase, Users, GraduationCap, Building2, CheckCircle } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useSEO } from '../utils/useSEO';
 
 export function ServicesPage() {
+  useSEO({ title: 'خدماتي', description: 'خدمات تصميم UI/UX احترافية: تصميم واجهات مستخدم، تجربة مستخدم، تصميم مواقع وتطبيقات، واستشارات تصميمية.', path: '/services' });
   const services = [
     {
       icon: Briefcase,
@@ -74,29 +76,53 @@ export function ServicesPage() {
   return (
     <div className="w-full bg-[#0f1419]">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0a0d12] via-[#0f1419] to-[#1a1f2e] py-28 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#CBA135]/8 rounded-full blur-[130px]"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
+          {/* Floating service labels */}
+          <div className="absolute top-10 left-10 hidden lg:flex gap-2 opacity-30">
+            {['UX Research', 'UI Design', 'Prototyping'].map((t) => (
+              <span key={t} className="px-3 py-1 text-xs rounded-full border border-[#CBA135]/30 text-[#CBA135]">{t}</span>
+            ))}
+          </div>
+          <div className="absolute bottom-10 right-10 hidden lg:flex gap-2 opacity-30">
+            {['Design System', 'Product Design', 'User Testing'].map((t) => (
+              <span key={t} className="px-3 py-1 text-xs rounded-full border border-[#CBA135]/30 text-[#CBA135]">{t}</span>
+            ))}
+          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block mb-4 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
-                <span className="text-[#CBA135] text-sm">الخدمات</span>
-              </div>
-              <h1 className="text-4xl lg:text-6xl mb-6 text-white">
-                خدمات التصميم والتدريب في UI/UX
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+              {/* Badge */}
+              <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-[#CBA135]/15 rounded-full border border-[#CBA135]/40 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[#CBA135] animate-pulse inline-block"></span>
+                <span className="text-[#CBA135] text-sm font-medium tracking-widest uppercase">خدماتي</span>
+              </motion.div>
+
+              <h1 className="font-bold text-white mb-8 leading-tight whitespace-normal lg:whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                <span>خدمات بتخلّي </span>
+                <span className="bg-gradient-to-l from-[#CBA135] via-[#d4c5a9] to-[#CBA135] bg-clip-text text-transparent">
+                  المنتج يبيع نفسه
+                </span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                من تصميم المنتجات الرقمية لتدريب المصممين — بقدّم خدمات شاملة
-                مبنية على خبرة +4 سنين في السوق المصري والخليجي.
+
+              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-12">
+                من أول ريسيرش المستخدمين لحد تسليم الـ Design System على Figma — بشتغل معك خطوة خطوة عشان المنتج الرقمي بتاعك يحقق نتائج قابلة للقياس.
               </p>
+
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="flex flex-wrap gap-4 justify-center">
+                <Link to="/contact" className="inline-flex items-center gap-2 bg-gradient-to-l from-[#CBA135] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-full font-bold shadow-lg shadow-[#CBA135]/20 hover:shadow-xl hover:shadow-[#CBA135]/30 transition-all hover:scale-105">
+                  <span>ابدأ مشروعك</span>
+                  <ArrowLeft className="w-5 h-5" />
+                </Link>
+                <Link to="/portfolio" className="inline-flex items-center gap-2 border border-[#CBA135]/40 text-[#CBA135] px-8 py-4 rounded-full font-medium hover:bg-[#CBA135]/10 transition-all">
+                  <span>شوف أعمالي أولاً</span>
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>

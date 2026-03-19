@@ -2,6 +2,7 @@
     "name": "Personal Website for Amir Yousry",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "homepage": "https://amiryousry1.github.io/Portfolio",
     "dependencies": {
         "@jsr/supabase__supabase-js": "^2.49.8",

@@ -4,7 +4,11 @@ import { ArrowLeft, Briefcase, Users, GraduationCap, Building2, Star, Quote, Awa
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
 import { articlesData } from '../data/articles';
+import { projectsData } from '../data/projects';
+import { useCountUp } from '../utils/useCountUp';
+import { useSEO } from '../utils/useSEO';
 export function HomePage() {
+  useSEO({ title: 'الصفحة الرئيسية', description: 'أمير يسري — مصمم UI/UX بخبرة +4 سنين. بحوّل أفكارك لمنتجات رقمية بتكسب. شوف أعمالي وتواصل معايا.', path: '/' });
   const services = [
     {
       icon: Briefcase,
@@ -28,29 +32,7 @@ export function HomePage() {
     },
   ];
 
-  const projects = [
-    {
-      id: 1,
-      title: 'تطبيق طبي',
-      description: 'تصميم UI/UX لتطبيق حجز مواعيد واستشارات طبية عن بعد',
-      image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY0OTY2OTI0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['Mobile', 'Healthcare'],
-    },
-    {
-      id: 2,
-      title: 'لوحة تحكم تحليلات',
-      description: 'تصميم Dashboard لتحليل البيانات — واجهة مرئية سهلة لاتخاذ قرارات أسرع',
-      image: 'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY0OTU3MDQ3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['Web', 'Dashboard'],
-    },
-    {
-      id: 3,
-      title: 'منصة تعليمية',
-      description: 'تصميم LMS — تجربة مستخدم متكاملة للطلاب والمدربين',
-      image: 'https://images.unsplash.com/photo-1762330910399-95caa55acf04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmxpbmUlMjBsZWFybmluZyUyMGVkdWNhdGlvbnxlbnwxfHx8fDE3NjQ5Njg3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['Web', 'Education'],
-    },
-  ];
+  const projects = projectsData.slice(0, 3);
 
   const testimonials = [
     {
@@ -72,6 +54,11 @@ export function HomePage() {
       rating: 5,
     },
   ];
+
+  // Counter animations
+  const yearsCounter = useCountUp({ end: 4, suffix: '+', duration: 1500 });
+  const projectsCounter = useCountUp({ end: 25, suffix: '+', duration: 2000 });
+  const designersCounter = useCountUp({ end: 3000, suffix: '+', separator: ',', duration: 2500 });
 
   return (
     <div className="min-h-screen bg-[#0f1419]">
@@ -193,7 +180,7 @@ export function HomePage() {
                     <Award className="w-5 h-5 text-[#CBA135]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xl font-bold text-white leading-tight">4+</span>
+                    <span ref={yearsCounter.ref} className="text-xl font-bold text-white leading-tight">{yearsCounter.value}</span>
                     <span className="text-xs text-gray-500 font-medium">سنين خبرة</span>
                   </div>
                 </div>
@@ -203,7 +190,7 @@ export function HomePage() {
                     <Briefcase className="w-5 h-5 text-[#CBA135]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xl font-bold text-white leading-tight">25+</span>
+                    <span ref={projectsCounter.ref} className="text-xl font-bold text-white leading-tight">{projectsCounter.value}</span>
                     <span className="text-xs text-gray-500 font-medium">مشروع ناجح</span>
                   </div>
                 </div>
@@ -213,7 +200,7 @@ export function HomePage() {
                     <Users className="w-5 h-5 text-[#CBA135]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xl font-bold text-white leading-tight">3,000+</span>
+                    <span ref={designersCounter.ref} className="text-xl font-bold text-white leading-tight">{designersCounter.value}</span>
                     <span className="text-xs text-gray-500 font-medium">مصمم دخلوا المجال</span>
                   </div>
                 </div>
@@ -437,62 +424,55 @@ export function HomePage() {
               className="h-1 bg-gradient-to-r from-transparent via-[#CBA135] to-transparent mx-auto rounded-full"
             />
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10" dir="rtl">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.15 }}
                 className="group"
               >
                 <Link to={`/portfolio/${project.id}`} className="block h-full">
-                  {/* Outer glow wrapper */}
-                  <div className="relative h-full">
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#CBA135]/0 via-[#CBA135]/0 to-[#CBA135]/0 group-hover:from-[#CBA135]/20 group-hover:via-[#CBA135]/10 group-hover:to-transparent rounded-3xl blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-
-                    <div className="relative h-full bg-gradient-to-br from-[#1a1f2e]/95 to-[#151a25]/95 backdrop-blur-sm rounded-3xl overflow-hidden border border-[#CBA135]/10 group-hover:border-[#CBA135]/30 transition-all duration-300 shadow-2xl">
-                      {/* Image Container */}
-                      <div className="relative aspect-video overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0f1419]/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <ImageWithFallback
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
+                  <div className="relative bg-[#0f1419] rounded-[32px] overflow-hidden border border-white/[0.03] hover:border-[#CBA135]/30 transition-all shadow-xl hover:shadow-2xl hover:shadow-[#CBA135]/10 flex flex-col p-6 sm:p-7 h-[500px]">
+                    {/* Top Row: Tags (Right) + Arrow (Left) — RTL flow */}
+                    <div className="flex justify-between items-start w-full mb-6">
+                      {/* Tags on the Right (start in RTL) */}
+                      <div className="flex gap-2 flex-wrap">
+                        {project.tags.map((tag, i) => (
+                          <span
+                            key={tag}
+                            className={`text-[11px] px-3.5 py-1 rounded-full font-medium tracking-wide border ${i === 0
+                              ? 'text-[#CBA135] border-[#CBA135]/40 bg-transparent'
+                              : 'text-gray-300 border-white/10 bg-[#151a25]/50'
+                              }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6 space-y-4">
-                        {/* Tags */}
-                        <div className="flex gap-2">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-xs bg-[#CBA135]/10 text-[#CBA135] border border-white/5 px-3 py-1.5 rounded-full font-medium"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-xl text-white font-semibold group-hover:text-[#d4c5a9] transition-colors">
-                          {project.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-gray-400 leading-relaxed text-[15px]">
-                          {project.description}
-                        </p>
-
-                        {/* CTA */}
-                        <div className="flex items-center gap-2 text-[#CBA135] pt-2">
-                          <span className="text-sm font-medium">شوف التفاصيل</span>
-                          <ArrowLeft className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
+                      {/* Arrow on the Left (end in RTL) */}
+                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white group-hover:bg-[#CBA135] group-hover:text-[#0f1419] group-hover:border-[#CBA135] transition-all bg-transparent flex-shrink-0">
+                        <ArrowLeft className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
+                    </div>
+
+                    {/* Middle Content — Right-Aligned RTL */}
+                    <div className="flex flex-col items-start text-right w-full mb-5">
+                      <h3 className="text-2xl sm:text-[28px] text-white font-bold group-hover:text-[#CBA135] transition-colors mb-2.5 leading-tight">{project.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                    </div>
+
+                    {/* Bottom Image */}
+                    <div className="relative w-full flex-grow mt-auto rounded-2xl overflow-hidden border border-white/5 bg-[#151a25]">
+                      <ImageWithFallback
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0f1419]/40 to-transparent pointer-events-none"></div>
                     </div>
                   </div>
                 </Link>

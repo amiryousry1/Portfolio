@@ -1,9 +1,12 @@
 import image_4a180dbf0412e1996c2a6f6179f02a33bfccc20b from '../assets/4a180dbf0412e1996c2a6f6179f02a33bfccc20b.png';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Target, Users, Lightbulb, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Target, Users, Lightbulb, TrendingUp, CalendarDays, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
+import { articlesData } from '../data/articles';
+import { useSEO } from '../utils/useSEO';
 
 export function AboutPage() {
+  useSEO({ title: 'من أنا', description: 'تعرف على أمير يسري — مصمم UI/UX بخبرة +4 سنين في 4 دول مختلفة. +25 مشروع منجز وأكتر من 3000 مصمم دخلوا المجال.', path: '/about' });
   const approach = [
     {
       icon: Target,
@@ -43,60 +46,72 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-[#0f1419]">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0f1419] py-24 lg:py-32 overflow-hidden">
-        {/* Background Decorative Elements */}
+      <section className="relative bg-gradient-to-br from-[#0a0d12] via-[#0f1419] to-[#1a1f2e] py-16 lg:py-24 overflow-hidden">
+        {/* Decorative glows */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-[#CBA135]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#CBA135]/5 rounded-full blur-3xl"></div>
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, 0],
-            }}
-            transition={{
-              duration: 6,
-
-              ease: "easeInOut",
-            }}
-            className="absolute top-1/4 right-1/3 w-4 h-4 bg-[#CBA135] rounded-full opacity-60"
-          ></motion.div>
-          <motion.div
-            animate={{
-              y: [0, 20, 0],
-              x: [0, -10, 0],
-            }}
-            transition={{
-              duration: 8,
-
-              ease: "easeInOut",
-            }}
-            className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[#CBA135] rounded-full opacity-40"
-          ></motion.div>
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#CBA135]/8 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#CBA135]/5 rounded-full blur-[100px]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDQkExMzUiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptMCAtMzR2Nmg2VjBoLTZ6TTYgMzR2Nmg2di02SDZ6TTYgMHY2aDZWMEg2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-40"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.9 }}
             >
-              <div className="inline-block mb-4 px-4 py-2 bg-[#CBA135]/20 rounded-full border border-[#CBA135]/30">
-                <span className="text-[#CBA135] text-sm">من أنا؟</span>
-              </div>
-              <h1 className="text-4xl lg:text-6xl mb-6 font-[IBM_Plex_Sans_Arabic] text-white">
-                أنا أمير يسري
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-[#CBA135]/15 rounded-full border border-[#CBA135]/40 backdrop-blur-sm"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#CBA135] animate-pulse inline-block"></span>
+                <span className="text-[#CBA135] text-sm font-medium tracking-widest uppercase">من أنا؟</span>
+              </motion.div>
+
+              {/* H1 */}
+              <h1 className="font-bold text-white mb-8 leading-tight whitespace-normal lg:whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                <span>أمير يسري — </span>
+                <span className="bg-gradient-to-l from-[#CBA135] via-[#d4c5a9] to-[#CBA135] bg-clip-text text-transparent">
+                  بصمّم زي ما بفكر
+                </span>
               </h1>
-              <p className="text-xl text-gray-300 font-[IBM_Plex_Sans_Arabic] leading-relaxed">
-                مصمم تجربة مستخدم… عقليتي دايمًا في حل المشاكل قبل تصميم الشكل.
+
+              {/* Subtitle */}
+              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-12">
+                UI/UX & Product Designer بخبرة +4 سنين. شايل في بالي إن الشكل الحلو من غير تجربة مستخدم صح = فلوس اتحرقت.
               </p>
+
+              {/* Stats Row */}
+              <div className="flex flex-wrap justify-center gap-8 mb-12">
+                {[{ n: '+4', label: 'سنين خبرة' }, { n: '+25', label: 'مشروع منجز' }, { n: '4', label: 'دول مختلفة' }].map((s, i) => (
+                  <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.1 }} className="text-center">
+                    <div className="text-3xl font-bold text-[#CBA135]">{s.n}</div>
+                    <div className="text-sm text-gray-400 mt-1">{s.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="flex flex-wrap gap-4 justify-center">
+                <Link to="/portfolio" className="inline-flex items-center gap-2 bg-gradient-to-l from-[#CBA135] to-[#a89363] text-[#0f1419] px-8 py-4 rounded-full font-bold shadow-lg shadow-[#CBA135]/20 hover:shadow-xl hover:shadow-[#CBA135]/30 transition-all hover:scale-105">
+                  <span>شوف شغلي</span>
+                  <ArrowLeft className="w-5 h-5" />
+                </Link>
+                <Link to="/contact" className="inline-flex items-center gap-2 border border-[#CBA135]/40 text-[#CBA135] px-8 py-4 rounded-full font-medium hover:bg-[#CBA135]/10 transition-all">
+                  <span>تواصل معايا</span>
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* My Story */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -105,25 +120,22 @@ export function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl lg:text-5xl mb-6 text-white">
+              <h2 className="text-3xl lg:text-5xl mb-8 text-white">
                 رحلتي في التصميم
               </h2>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p>
-                  بدأت رحلتي في عالم الـ UI/UX من أكتر من 4 سنين، وخلال الفترة دي
-                  اشتغلت على مشاريع مختلفة في مجالات كتير.
+                  بدأت في الـ UI/UX من أكتر من 4 سنين، واشتغلت على مشاريع تنوعت ما بين تطبيقات موبايل، منصات ويب، ولوحات إدارة — لعملاء في مصر والخليج والسوق الدولي.
                 </p>
                 <p>
-                  كل مشروع علمني حاجة جديدة، وخلاني أفهم إن التصميم الحقيقي مش
-                  بس شكل جميل… ده حل مشكلة حقيقية للمستخدم.
+                  كل مشروع أضاف ليّا طبقة جديدة من الفهم: إن المستخدم مش بيقرأ، بيشوف — وإن كل ثانية تأخير أو زر مش واضح بتكلّف صاحب المشروع عميل.
                 </p>
                 <p>
-                  دلوقتي بشتغل مصمم، مدرب، وصانع محتوى. هدفي إني أساعد أكبر عدد
-                  من الناس يدخلوا المجال بشكل صحيح ويبنوا مستقبل مهني قوي.
+                  دلوقتي بجمع بين التصميم، بناء المنتجات رقمية بالـ AI، وتدريب المصممين الجدد. هدفي الواحد: إن كل حاجة بتخرج باسمي تفرق.
                 </p>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-10">
                 <Link
                   to="/portfolio"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-[#CBA135] to-[#a89363] text-[#0f1419] px-6 py-3 rounded-full hover:shadow-lg hover:shadow-[#CBA135]/20 transition-all font-semibold"
@@ -145,7 +157,7 @@ export function AboutPage() {
               <div className="relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl max-w-md mx-auto">
                 <img
                   src={image_4a180dbf0412e1996c2a6f6179f02a33bfccc20b}
-                  alt="أمير يسري"
+                  alt="أمير يسري — UI/UX Designer & Product Designer | Amir Yousry"
                   className="w-full h-auto"
                 />
               </div>
@@ -263,6 +275,70 @@ export function AboutPage() {
               <ArrowLeft className="w-5 h-5" />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ===== ARTICLES SECTION ===== */}
+      <section className="py-20 bg-[#0f1419]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">أحدث المقالات</h2>
+            <p className="text-gray-400 max-w-xl mx-auto">أفكار وتجارب من عالم الـ UI/UX</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articlesData.slice(0, 3).map((article, index) => (
+              <motion.div
+                key={article.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group flex flex-col h-full"
+              >
+                <Link to={`/blog/${article.id}`} className="relative flex-1 bg-[#151a25] border border-white/5 group-hover:border-[#CBA135]/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#CBA135]/5 flex flex-col">
+                  <div className="h-1 w-full bg-gradient-to-l from-transparent via-[#CBA135]/60 to-transparent group-hover:via-[#CBA135] transition-all duration-300"></div>
+                  <div className="p-7 flex flex-col flex-1">
+                    <div className="mb-5">
+                      <span className="text-xs font-semibold px-3.5 py-1.5 bg-[#CBA135]/10 text-[#CBA135] rounded-lg border border-[#CBA135]/20">
+                        {article.category}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-4 group-hover:text-[#CBA135] transition-colors leading-relaxed">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                      {article.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between pt-5 border-t border-white/5">
+                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                        <span className="flex items-center gap-1.5">
+                          <CalendarDays className="w-3.5 h-3.5" />
+                          {article.date}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5" />
+                          {article.readTime}
+                        </span>
+                      </div>
+                      <div className="text-[#CBA135] flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all">
+                        <span>اقرأ</span>
+                        <ArrowLeft className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 border border-[#CBA135]/40 text-[#CBA135] px-8 py-4 rounded-full font-medium hover:bg-[#CBA135]/10 transition-all"
+            >
+              <span>تصفح كل المقالات</span>
+              <ArrowLeft className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
